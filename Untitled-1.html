@@ -1,0 +1,987 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<style>
+         @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+@font-face {
+  font-family: "Open Sans-Regular";
+  src: local("Open Sans-Regular");
+}
+@font-face {
+  font-family: "Open Sans-Bold";
+  src: local("Open Sans-Bold");
+}
+@font-face {
+  font-family: "Open Sans-Light";
+  src: local("Open Sans-Light");
+}
+@font-face {
+  font-family: "Open Sans-SemiBold";
+  src: local("Open Sans-SemiBold");
+}
+@font-face {
+  font-family: "Open Sans-Italic";
+  src: local("Open Sans-Italic");
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+:root {
+  --font-light: "Open Sans-Light", Helvetica, sans-serif;
+  --font-reg: "Open Sans-Regular", Helvetica, sans-serif;
+  --font-semi: "Open Sans-SemiBold", Helvetica, sans-serif;
+  --font-bold: "Open Sans-Bold", Helvetica, sans-serif;
+  --font-italic: "Open Sans-Italic", Helvetica, sans-serif;
+  --color-main: #ffa019;
+  --color-dark: #333333;
+  --color-gray: #777777;
+  --color-light-gray: #8191a6;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.element {
+  background-color: #ffffff;
+  overflow: hidden;
+  width: 100%;
+  min-width: 1920px;
+  min-height: 4420px; /* Увеличено из-за сдвига блоков */
+  position: relative;
+}
+
+/* ВАЖНО: Я убрал отсюда .element .p и .text-wrapper-15, чтобы разрешить перенос строк */
+.element [class*="text-wrapper"], 
+.element .div, 
+.element .input,
+.element .text-wrapper-2,
+.element .text-wrapper-3,
+.element .text-wrapper-4,
+.element .text-wrapper-5,
+.element .text-wrapper-6,
+.element .text-wrapper-7,
+.element .text-wrapper-8,
+.element .text-wrapper-9,
+.element .text-wrapper-10,
+.element .text-wrapper-11,
+.element .text-wrapper-12,
+.element .text-wrapper-13,
+.element .text-wrapper-14,
+.element .text-wrapper-16,
+.element .text-wrapper-17,
+.element .text-wrapper-18,
+.element .text-wrapper-19,
+.element .text-wrapper-20,
+.element .text-wrapper-21,
+.element .text-wrapper-22,
+.element .text-wrapper-23,
+.element .text-wrapper-24,
+.element .text-wrapper-25,
+.element .text-wrapper-26,
+.element .text-wrapper-27,
+.element .text-wrapper-28,
+.element .text-wrapper-29,
+.element .text-wrapper-30,
+.element .text-wrapper-31,
+.element .text-wrapper-32,
+.element .text-wrapper-33,
+.element .text-wrapper-34,
+.element .text-wrapper-35,
+.element .text-wrapper-36,
+.element .text-wrapper-37,
+.element .text-wrapper-38,
+.element .text-wrapper-39,
+.element .text-wrapper-40,
+.element .text-wrapper-41,
+.element .text-wrapper-42,
+.element .text-wrapper-43,
+.element .text-wrapper-48,
+.element .text-wrapper-49,
+.element .text-wrapper-50,
+.element .text-wrapper-51,
+.element .text-wrapper-52,
+.element .text-wrapper-53,
+.element .text-wrapper-54,
+.element .text-wrapper-55,
+.element .text-wrapper-56,
+.element .text-wrapper-57,
+.element .text-wrapper-58 {
+  white-space: nowrap;
+  letter-spacing: 0;
+}
+
+button, input { 
+  font: inherit; 
+}
+
+button { 
+  padding: 0; 
+  border: 0; 
+  cursor: pointer; 
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible { 
+  outline: 2px solid #4a90e2; 
+  outline-offset: 2px; 
+}
+
+.element h1, .element h2, .element h3, .element p { 
+  margin: 0; 
+}
+
+.element .navbar a, .element .view-17 a { 
+  color: inherit; 
+}
+
+.element .view-5 .input {
+  margin-top: 12px;
+  width: 190px;
+  height: 21px;
+  margin-left: 16px;
+  color: #ffffff;
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.element .view-5 .input::placeholder, .element .email .input::placeholder { 
+  color: #ffffff; 
+  opacity: 1; 
+}
+
+.element .view-5:focus-within, .element .email:focus-within { 
+  outline: 2px solid #ffffff; 
+  outline-offset: -2px; 
+}
+
+.element .div-wrapper,
+.element .view-6,
+.element .view-14,
+.element .view-9,
+.element .text-wrapper-9,
+.element .text-wrapper-26,
+.element .text-wrapper-27,
+.element .text-wrapper-28 {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.element .view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 62px;
+  display: flex;
+  gap: 156px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 6px #00000033;
+}
+
+.element .text-wrapper {
+  margin: 20px 0 0 390px;
+  width: 800px;
+  height: 1px;
+  font-family: var(--font-reg);
+  font-weight: 400;
+  color: var(--color-dark);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.element .div-wrapper, .element .view-14 {
+  display: flex;
+  background-color: var(--color-main);
+  border-radius: 10px;
+}
+
+.element .div-wrapper { 
+  margin-top: 12px; 
+  width: 184px; 
+  height: 37px; 
+}
+
+.element .div {
+  margin-top: 8.8px;
+  width: 184px;
+  height: 1px;
+  font-family: var(--font-bold);
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 13px;
+  text-align: center;
+  line-height: 19.5px;
+}
+
+.element .navbar {
+  position: absolute;
+  top: 62px;
+  left: 0;
+  width: 1920px;
+  height: 62px;
+  display: flex;
+  background-color: #ffffff;
+}
+
+.element .text-wrapper-2 {
+  margin: 5px 0 0 390px;
+  width: 220px;
+  height: 1px;
+  font-family: var(--font-bold);
+  font-weight: 700;
+  color: #222222;
+  font-size: 30px;
+  line-height: 45px;
+}
+
+.element .text-wrapper-3,
+.element .text-wrapper-4,
+.element .text-wrapper-5,
+.element .text-wrapper-6,
+.element .text-wrapper-7 {
+  margin-top: 21px;
+  height: 1px;
+  font-family: var(--font-reg);
+  font-weight: 400;
+  color: #444444;
+  font-size: 14px;
+  line-height: 21px;
+}
+.element .text-wrapper-3 { width: 140px; margin-left: 170px; }
+.element .text-wrapper-4 { width: 70px; }
+.element .text-wrapper-5 { width: 140px; }
+.element .text-wrapper-6 { width: 90px; }
+.element .text-wrapper-7 { width: 100px; }
+
+.element .view-2 {
+  position: absolute;
+  top: 879px;
+  left: 0;
+  width: 1920px;
+  height: 540px;
+  background-color: #ffffff;
+}
+
+.element .text-wrapper-8,
+.element .text-wrapper-14,
+.element .text-wrapper-19,
+.element .text-wrapper-24,
+.element .text-wrapper-33 {
+  font-family: var(--font-light);
+  font-weight: 300;
+  color: var(--color-gray);
+  font-size: 34px;
+  line-height: 51px;
+}
+.element .text-wrapper-8 { position: absolute; top: 100px; left: 390px; width: 1140px; }
+
+.element .text-wrapper-9 {
+  position: absolute;
+  top: 105px;
+  left: 1470px;
+  width: 60px;
+  font-family: var(--font-light);
+  font-weight: 300;
+  color: #888888;
+  font-size: 24px;
+  text-align: right;
+  line-height: 36px;
+}
+
+.element .text-wrapper-10,
+.element .text-wrapper-11,
+.element .text-wrapper-12,
+.element .text-wrapper-13 {
+  position: absolute;
+  top: 402px;
+  width: 263px;
+  font-family: var(--font-light);
+  font-weight: 300;
+  color: var(--color-gray);
+  font-size: 20px;
+  text-align: center;
+  line-height: 30px;
+}
+.element .text-wrapper-10 { left: 390px; }
+.element .text-wrapper-11 { left: 682px; }
+.element .text-wrapper-12 { left: 974px; }
+.element .text-wrapper-13 { left: 1266px; }
+
+.element .consultant,
+.element .bolshoy-assortiment,
+.element .bistraya-dostavka,
+.element .element-kachestvo {
+  position: absolute;
+  top: 250px;
+  width: 136px;
+  height: 120px;
+  aspect-ratio: 1.13;
+  object-fit: cover;
+}
+.element .element-kachestvo { left: 454px; }
+.element .bistraya-dostavka { left: 746px; }
+.element .bolshoy-assortiment { left: 1038px; }
+.element .consultant { left: 1330px; }
+
+/* БЛОК "О НАС" - ИСПРАВЛЕН */
+.element .view-3 {
+  position: absolute;
+  top: 1419px;
+  left: 0;
+  width: 1920px;
+  height: 425px; /* Увеличено, чтобы текст влез */
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+.element .text-wrapper-14 { margin: 20px 0 0 390px; width: 1140px; height: auto; }
+
+.element .p, .element .text-wrapper-15 {
+  margin-left: 390px;
+  width: 1140px;
+  height: auto !important; /* Убрана жесткая высота 1px */
+  font-family: var(--font-light);
+  font-weight: 300;
+  color: var(--color-gray);
+  font-size: 20px;
+  line-height: 30px;
+  white-space: normal !important; /* Разрешен перенос строк */
+}
+.element .p { margin-top: 40px; }
+.element .text-wrapper-15 { margin-top: 20px; }
+
+/* СДВИГ ВСЕХ БЛОКОВ НИЖЕ ИЗ-ЗА УВЕЛИЧЕНИЯ БЛОКА "О НАС" */
+.element .view-4 { top: 1844px; }
+.element .view-7 { top: 1938px; }
+.element .view-8 { top: 2358px; }
+.element .view-13 { top: 2978px; }
+.element .view-15 { top: 3388px; }
+.element .view-16 { top: 3630px; }
+.element .view-17 { top: 4112px; }
+
+.element .view-4 {
+  position: absolute;
+  left: 0;
+  width: 1920px;
+  height: 94px;
+  display: flex;
+  background-color: var(--color-main);
+}
+
+.element .text-wrapper-16 {
+  margin: 20px 0 0 390px;
+  width: 375px;
+  height: 1px;
+  font-family: var(--font-semi);
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.element .view-5, .element .email {
+  margin-top: 24px;
+  width: 225px;
+  height: 46px;
+  display: flex;
+  background-color: var(--color-main);
+  border: 1px solid #ffffff80;
+}
+.element .view-5 { margin-left: 25px; }
+.element .email { margin-left: 15px; }
+
+.element .text-wrapper-17, .element .input {
+  margin: 12px 0 0 16px;
+  width: 190px;
+  height: 1px;
+  font-family: var(--font-reg);
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 21px;
+}
+.element .input { background: transparent; border: none; padding: 0; }
+
+.element .view-6 { margin: 24px 0 0 25px; width: 250px; height: 46px; display: flex; background-color: #ffffff; }
+
+.element .text-wrapper-18 {
+  margin-top: 12.5px;
+  width: 250px;
+  height: 1px;
+  font-family: var(--font-bold);
+  font-weight: 700;
+  color: var(--color-dark);
+  font-size: 14px;
+  text-align: center;
+  line-height: 21px;
+}
+
+.element .view-7 {
+  position: absolute;
+  left: 0;
+  width: 1920px;
+  height: 420px;
+  background-color: #ffffff;
+}
+.element .text-wrapper-19 { position: absolute; top: 65px; left: 390px; width: 1140px; }
+
+.element .text-wrapper-20,
+.element .text-wrapper-21,
+.element .text-wrapper-22,
+.element .text-wrapper-23 {
+  position: absolute;
+  font-family: var(--font-light);
+  font-weight: 300;
+  color: var(--color-gray);
+  font-size: 20px;
+  line-height: 30px;
+}
+.element .text-wrapper-20 { top: 160px; left: 390px; width: 375px; }
+.element .text-wrapper-21 { top: 160px; left: 780px; width: 375px; }
+.element .text-wrapper-22 { top: 160px; left: 1170px; width: 375px; }
+.element .text-wrapper-23 { top: 285px; left: 390px; width: 1140px; }
+
+.element .view-8 {
+  position: absolute;
+  left: 0;
+  width: 1920px;
+  height: 620px;
+  background-color: #fbfbfb;
+}
+.element .text-wrapper-24 { position: absolute; top: 45px; left: 390px; width: 1140px; }
+
+.element .view-9 {
+  position: absolute;
+  top: 56px;
+  left: 1125px;
+  width: 46px;
+  height: 30px;
+  display: flex;
+  background-color: var(--color-main);
+  border-radius: 15px;
+}
+
+.element .text-wrapper-25 {
+  margin-top: 3px;
+  width: 46px;
+  height: 1px;
+  font-family: var(--font-bold);
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  line-height: 24px;
+}
+
+.element .text-wrapper-26,
+.element .text-wrapper-27,
+.element .text-wrapper-28 {
+  position: absolute;
+  top: 59px;
+  font-family: var(--font-light);
+  font-weight: 300;
+  color: var(--color-gray);
+  font-size: 16px;
+  line-height: 24px;
+}
+.element .text-wrapper-26 { left: 1185px; width: 130px; }
+.element .text-wrapper-27 { left: 1320px; width: 165px; }
+.element .text-wrapper-28 { left: 1485px; width: 80px; }
+
+.element .div-2,
+.element .div-3,
+.element .div-4,
+.element .div-5 {
+position: absolute;
+top: 165px;
+width: 263px;
+height: 382px;
+display: flex;
+flex-direction: column;
+background-color: #ffffff;
+box-shadow: 0px 0px 20px #0000001a;
+}
+.element .div-2 { left: 390px; }
+.element .div-3 { left: 682px; }
+.element .div-4 { left: 974px; }
+.element .div-5 { left: 1266px; }
+.element .view-10,
+.element .view-11,
+.element .view-12 {
+height: 31px;
+margin-top: 18px;
+display: flex;
+background-color: var(--color-main);
+border-radius: 0px 15px 15px 0px;
+}
+.element .view-10 { width: 83px; }
+.element .view-11 { width: 122px; }
+.element .view-12 { width: 165px; }
+.element .text-wrapper-29,
+.element .text-wrapper-31,
+.element .text-wrapper-32 {
+margin-top: 5px;
+font-family: var(--font-bold);
+font-weight: 700;
+color: #ffffff;
+font-size: 14px;
+text-align: center;
+line-height: 21px;
+}
+.element .text-wrapper-29 { width: 83px; }
+.element .text-wrapper-31 { width: 122px; }
+.element .text-wrapper-32 { width: 165px; }
+.element .img, .element .img-2, .element .img-3, .element .img-4 {
+aspect-ratio: 1;
+object-fit: cover;
+}
+.element .img { margin: 4px 0 0 20px; width: 207px; height: 207px; }
+.element .img-2 { margin: 4px 0 0 35px; width: 194px; height: 194px; }
+.element .img-3 { margin: 12px 0 0 28px; width: 208px; height: 208px; }
+.element .img-4 { margin: 8px 0 0 20px; width: 212px; height: 212px; }
+.element .xiaomi-ninebot-mini,
+.element .xiaomi-ninebot-mini-2,
+.element .xiaomi-ninebot-mini-3 {
+margin-left: 20px;
+width: 225px;
+height: 1px;
+font-family: var(--font-light);
+font-weight: 300;
+color: var(--color-gray);
+font-size: 16px;
+line-height: 23px;
+}
+.element .xiaomi-ninebot-mini { margin-top: 20px; }
+.element .xiaomi-ninebot-mini-2 { margin-top: 33px; }
+.element .xiaomi-ninebot-mini-3 { margin-top: 11px; }
+.element .text-wrapper-30 {
+margin: 58px 0 0 20px;
+width: 225px;
+height: 1px;
+font-family: var(--font-bold);
+font-weight: 700;
+color: var(--color-dark);
+font-size: 20px;
+line-height: 30px;
+}
+.element .view-13 {
+position: absolute;
+left: 0;
+width: 1920px;
+height: 410px;
+background-color: #ffffff;
+}
+.element .text-wrapper-33 { position: absolute; top: 55px; left: 390px; width: 1140px; }
+.element .div-6, .element .div-7, .element .div-8 {
+position: absolute;
+top: 165px;
+width: 360px;
+height: 184px;
+background-color: #fbfbfb;
+}
+.element .div-6 { left: 390px; }
+.element .div-7 { left: 780px; }
+.element .div-8 { left: 1170px; }
+.element .text-wrapper-34 {
+position: absolute;
+top: 26px;
+left: 190px;
+width: 170px;
+font-family: var(--font-reg);
+font-weight: 400;
+color: #666666;
+font-size: 20px;
+line-height: 30px;
+}
+.element .text-wrapper-35 {
+position: absolute;
+top: 65px;
+left: 190px;
+width: 170px;
+font-family: var(--font-italic);
+font-weight: 400;
+font-style: italic;
+color: var(--color-gray);
+font-size: 12px;
+line-height: 18px;
+}
+.element .view-14 { position: absolute; top: 105px; left: 190px; width: 85px; height: 31px; }
+.element .text-wrapper-36 {
+margin-top: 8px;
+width: 85px;
+height: 1px;
+font-family: var(--font-bold);
+font-weight: 700;
+color: #ffffff;
+font-size: 10px;
+text-align: center;
+line-height: 15px;
+}
+.element .rectangle, .element .rectangle-2, .element .rectangle-3 {
+top: 0;
+left: 0;
+height: 184px;
+object-fit: cover;
+position: absolute;
+}
+.element .rectangle { width: 170px; }
+.element .rectangle-2 { width: 169px; }
+.element .rectangle-3 { width: 180px; }
+.element .view-15 {
+position: absolute;
+left: 0;
+width: 1920px;
+height: 194px;
+background-color: #fbfbfb;
+}
+.element .text-wrapper-37,
+.element .text-wrapper-38,
+.element .text-wrapper-39,
+.element .text-wrapper-40,
+.element .text-wrapper-41,
+.element .text-wrapper-42,
+.element .text-wrapper-43 {
+position: absolute;
+top: 60px;
+font-family: var(--font-bold);
+font-weight: 700;
+color: #9b9b9b;
+font-size: 50px;
+line-height: 75px;
+}
+.element .text-wrapper-37 { left: 50px; width: 250px; }
+.element .text-wrapper-38 { left: 305px; width: 250px; }
+.element .text-wrapper-39 { left: 610px; width: 250px; }
+.element .text-wrapper-40 { left: 850px; width: 250px; }
+.element .text-wrapper-41 { left: 1090px; width: 250px; }
+.element .text-wrapper-42 { left: 1330px; width: 300px; }
+.element .text-wrapper-43 { left: 1680px; width: 250px; }
+
+/* БЛОК "ПОЛЕЗНАЯ ИНФОРМАЦИЯ" - ИСПРАВЛЕН */
+.element .view-16 {
+position: absolute;
+left: 0;
+width: 1920px;
+height: 530px;
+background-color: #ffffff;
+}
+.element .img-5, .element .img-6, .element .img-7, .element .img-8 {
+position: absolute;
+top: 175px;
+width: 263px;
+height: 263px;
+aspect-ratio: 1;
+object-fit: cover;
+}
+.element .img-5 { left: 974px; }
+.element .img-6 { left: 1266px; }
+.element .img-7 { left: 682px; }
+.element .img-8 { left: 390px; }
+
+.element .text-wrapper-44,
+.element .text-wrapper-45,
+.element .text-wrapper-46,
+.element .text-wrapper-47 {
+position: absolute;
+top: 175px;
+font-family: var(--font-italic);
+font-weight: 400;
+font-style: italic;
+color: #ffffff;
+font-size: 20px;
+text-align: center;
+line-height: 28px;
+white-space: normal !important; /* Отменяем запрет на перенос строк */
+background-color: rgba(0, 0, 0, 0.5) !important; /* Затемнение для читаемости */
+display: flex !important;
+align-items: center !important;
+justify-content: center !important;
+width: 263px;
+height: 263px;
+padding: 15px;
+box-sizing: border-box;
+}
+.element .text-wrapper-44 { left: 974px; }
+.element .text-wrapper-45 { left: 1266px; }
+.element .text-wrapper-46 { left: 682px; }
+.element .text-wrapper-47 { left: 390px; }
+
+.element .view-17 {
+position: absolute;
+left: 0;
+width: 1920px;
+height: 308px;
+background-color: #fbfbfb;
+}
+.element .text-wrapper-48, .element .text-wrapper-49,
+.element .text-wrapper-51, .element .text-wrapper-53, .element .text-wrapper-55 {
+position: absolute;
+font-family: var(--font-reg);
+font-weight: 400;
+color: var(--color-light-gray);
+font-size: 14px;
+}
+.element .text-wrapper-48 { top: 65px; left: 390px; width: 450px; line-height: 20px; }
+.element .text-wrapper-49 { top: 240px; left: 390px; width: 450px; line-height: 21px; }
+.element .text-wrapper-50, .element .text-wrapper-52, .element .text-wrapper-54 {
+position: absolute;
+top: 65px;
+width: 190px;
+font-family: var(--font-bold);
+font-weight: 700;
+color: #303842;
+font-size: 14px;
+line-height: 21px;
+}
+.element .text-wrapper-50 { left: 975px; }
+.element .text-wrapper-52 { left: 1170px; }
+.element .text-wrapper-54 { left: 1365px; }
+.element .text-wrapper-51 { top: 105px; left: 975px; width: 190px; line-height: 24px; }
+.element .text-wrapper-53 { top: 105px; left: 1170px; width: 190px; line-height: 24px; }
+.element .text-wrapper-55 { top: 105px; left: 1365px; width: 190px; line-height: 24px; }
+.element .rectangle-4, .element .scooter {
+top: 124px;
+width: 1920px;
+height: 755px;
+position: absolute;
+left: 0;
+}
+.element .rectangle-4 { background-color: #d9d9d9; }
+.element .scooter { object-fit: cover; }
+.element .view-18 {
+position: absolute;
+top: 567px;
+left: 868px;
+width: 184px;
+height: 37px;
+display: flex;
+background-color: #ffffff;
+border-radius: 10px;
+}
+.element .text-wrapper-56 {
+margin: 8px 0 0 22px;
+width: 139px;
+height: 20px;
+font-family: var(--font-bold);
+font-weight: 700;
+color: #000000;
+font-size: 13px;
+text-align: center;
+line-height: 19.5px;
+}
+.element .text-wrapper-57 {
+position: absolute;
+top: 355px;
+left: 838px;
+width: 243px;
+font-family: var(--font-light);
+font-weight: 300;
+color: #ffffff;
+font-size: 64px;
+text-align: center;
+line-height: 40px;
+}
+.element .text-wrapper-58 {
+position: absolute;
+top: 429px;
+left: 282px;
+width: 1356px;
+font-family: var(--font-italic);
+font-weight: 400;
+font-style: italic;
+color: #ffffff;
+font-size: 36px;
+text-align: center;
+line-height: 40px;
+}
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="My-Giro — интернет-магазин гироскутеров, сигвеев и электросамокатов">
+<title>My-Giro — гироскутеры, сигвеи и электросамокаты</title>
+</head>
+<body>
+<main class="element">
+<header class="view">
+<p class="text-wrapper">Мы всегда рады помочь по телефону <a href="tel:+79233989013">+7 923 398 9013</a></p>
+<button class="div-wrapper" type="button">
+<span class="div">ЗАКАЗАТЬ ЗВОНОК</span>
+</button>
+</header>
+<nav class="navbar" aria-label="Основная навигация">
+<a class="text-wrapper-2" href="#top">My-Giro</a>
+<a class="text-wrapper-3" href="#advantages">ПРЕИМУЩЕСТВА</a>
+<a class="text-wrapper-4" href="#about">О НАС</a>
+<a class="text-wrapper-5" href="#features">ОСОБЕННОСТИ</a>
+<a class="text-wrapper-6" href="#catalog">КАТАЛОГ</a>
+<a class="text-wrapper-7" href="#team">КОМАНДА</a>
+<a class="text-wrapper-6" href="#brands">БРЕНДЫ</a>
+<a class="text-wrapper-7" href="#useful">ПОЛЕЗНОЕ</a>
+</nav>
+<section class="rectangle-4" id="top" aria-label="Главный баннер"></section>
+<img class="scooter" src="PR12\Images\scooter-3620869_960_720.jpg">
+<div class="view-18">
+<a class="text-wrapper-56" href="#catalog">В КАТАЛОГ</a>
+</div>
+<h1 class="text-wrapper-57">My-Giro</h1>
+<p class="text-wrapper-58">Крупнейший интернет-магазин гироскутеров, сигвеев и электросамокатов от известных мировых производителей</p>
+<section class="view-2" id="advantages" aria-labelledby="advantages-title">
+<h2 class="text-wrapper-8" id="advantages-title">Наши преимущества</h2>
+<button class="text-wrapper-9" type="button" aria-label="Переключить преимущества">◁ ▷</button>
+<article>
+<h3 class="text-wrapper-10">Гарантия качества</h3>
+<img class="element-kachestvo" src="PR12\Content\Преимущества компании\100-kachestvo.png">
+</article>
+<article>
+<h3 class="text-wrapper-11">Быстрая доставка</h3>
+<img class="bistraya-dostavka" src="PR12\Content\Преимущества компании\bistraya-dostavka.png">
+</article>
+<article>
+<h3 class="text-wrapper-12">Большой ассортимент</h3>
+<img class="bolshoy-assortiment" src="PR12\Content\Преимущества компании\bolshoy-assortiment.png">
+</article>
+<article>
+<h3 class="text-wrapper-13">Онлайн-консультант</h3>
+<img class="consultant" src="PR12\Content\Преимущества компании\consultant.png">
+</article>
+</section>
+<section class="view-3" id="about" aria-labelledby="about-title">
+<h2 class="text-wrapper-14" id="about-title">О нас</h2>
+<p class="p">В нашем интернет-магазине представлен большой выбор гироскутеров, <br> сигвеев и электросамокатов от известных мировых производителей.</p>
+<p class="text-wrapper-15">Все товары, представленные на нашем сайте, отобраны лучшими специалистами в этой области. <br> Купить гироскутер, электросамокат или сигвей недорого, Вы можете в нашем интернет-магазине в любое время, когда Вам удобно. Доставка заказов осуществляется бесплатно, в любую точку России.</p>
+</section>
+<section class="view-4" aria-labelledby="newsletter-title">
+<h2 class="text-wrapper-16" id="newsletter-title">Подпишитесь на нашу рассылку<br>и оставайтесь в курсе событий</h2>
+<form action="#" method="post">
+<label class="view-5">
+<span class="text-wrapper-17">Имя</span>
+<input class="input" name="name" type="text" autocomplete="name" aria-label="Имя">
+</label>
+<label class="email">
+<input class="input" name="email" placeholder="Email" type="email" autocomplete="email" required aria-label="Email">
+</label>
+<button class="view-6" type="submit">
+<span class="text-wrapper-18">ПОДПИСАТЬСЯ</span>
+</button>
+</form>
+</section>
+<section class="view-7" id="features" aria-labelledby="features-title">
+<h2 class="text-wrapper-19" id="features-title">Особенности гироскутеров</h2>
+<p class="text-wrapper-20">− Трясёт<br>− Нет сиденья<br>− Только для одного</p>
+<p class="text-wrapper-21">+ Исключительная компактность<br>+ Небольшой вес<br>+ Экономичность</p>
+<p class="text-wrapper-22">+ Доступность<br>+ Манёвренность<br>+ Простой в освоении</p>
+<p class="text-wrapper-23">Этих преимуществ гироскутера вполне достаточно для того, чтобы в своей нише данный вид транспорта являлся одним из самых лучших вариантов!</p>
+</section>
+<section class="view-8" id="catalog" aria-labelledby="catalog-title">
+<h2 class="text-wrapper-24" id="catalog-title">Каталог</h2>
+<nav aria-label="Категории товаров">
+<button class="view-9" type="button" aria-pressed="true"><span class="text-wrapper-25">Все</span></button>
+<button class="text-wrapper-26" type="button">Гироскутеры</button>
+<button class="text-wrapper-27" type="button">Электросамокаты</button>
+<button class="text-wrapper-28" type="button">Сигвеи</button>
+</nav>
+<article class="div-2">
+<span class="view-10"><span class="text-wrapper-29">Сигвеи</span></span>
+<img class="img" src="PR12\Content\Список товаров\Сигвеи\2.jpg">
+<h3 class="xiaomi-ninebot-mini">Xiaomi Ninebot mini Pro<br>White (Белый)</h3>
+<p class="text-wrapper-30">31 480 р.</p>
+</article>
+<article class="div-3">
+<span class="view-11"><span class="text-wrapper-31">Гироскутеры</span></span>
+<img class="img-2" src="PR12\Content\Список товаров\Гироскутеры\2.jpg">
+<h3 class="xiaomi-ninebot-mini-2">Xiaomi Ninebot mini Pro<br>White (Белый)</h3>
+<p class="text-wrapper-30">31 480 р.</p>
+</article>
+<article class="div-4">
+<span class="view-12"><span class="text-wrapper-32">Электросамокаты</span></span>
+<img class="img-3" src="PR12\Content\Список товаров\Электросамокаты\3.jpg">
+<h3 class="xiaomi-ninebot-mini-3">Xiaomi Ninebot mini Pro<br>White (Белый)</h3>
+<p class="text-wrapper-30">31 480 р.</p>
+</article>
+<article class="div-5">
+<span class="view-10"><span class="text-wrapper-29">Сигвеи</span></span>
+<img class="img-4" src="PR12\Content\Список товаров\Сигвеи\1.jpg">
+<h3 class="xiaomi-ninebot-mini-3">Xiaomi Ninebot mini Pro<br>White (Белый)</h3>
+<p class="text-wrapper-30">31 480 р.</p>
+</article>
+</section>
+<section class="view-13" id="team" aria-labelledby="team-title">
+<h2 class="text-wrapper-33" id="team-title">Наши консультанты</h2>
+<article class="div-6">
+<h3 class="text-wrapper-34">Иван Алексеев</h3>
+<p class="text-wrapper-35">менеджер по продажам</p>
+<button class="view-14" type="button"><span class="text-wrapper-36">НАПИСАТЬ</span></button>
+<img class="rectangle" src="PR12\Content\Консультанты\Иван Алексеев менеджер по продажам.jpg">
+</article>
+<article class="div-7">
+<h3 class="text-wrapper-34">Иван Алексеев</h3>
+<p class="text-wrapper-35">менеджер по продажам</p>
+<button class="view-14" type="button"><span class="text-wrapper-36">НАПИСАТЬ</span></button>
+<img class="rectangle-2" src="PR12\Content\Консультанты\Галина Петрова менеджер по продажам.jpg">
+</article>
+<article class="div-8">
+<h3 class="text-wrapper-34">Иван Алексеев</h3>
+<p class="text-wrapper-35">менеджер по продажам</p>
+<button class="view-14" type="button"><span class="text-wrapper-36">НАПИСАТЬ</span></button>
+<img class="rectangle-3" src="PR12\Content\Консультанты\Светлана Астахова менеджер по продажам.jpg">
+</article>
+</section>
+<section class="view-15" id="brands" aria-label="Бренды">
+<span class="text-wrapper-37">XIAOMI</span>
+<span class="text-wrapper-38">BALANCE</span>
+<span class="text-wrapper-39">KUGOO</span>
+<span class="text-wrapper-40">SMART</span>
+<span class="text-wrapper-41">SUBOR</span>
+<span class="text-wrapper-42">AIRWHEEL</span>
+<span class="text-wrapper-43">LINBOL</span>
+</section>
+<section class="view-16" id="useful" aria-labelledby="useful-title">
+<h2 class="text-wrapper-19" id="useful-title">Полезная информация</h2>
+<article>
+<img class="img-5" src="PR12\Content\Полезная информация\1.jpg">
+<h3 class="text-wrapper-44">Как выбрать сигвей? На что обратить внимание?</h3>
+</article>
+<article>
+<img class="img-6" src="PR12\Content\Полезная информация\2.jpg">
+<h3 class="text-wrapper-45">Советы по выбору гироскутера для ребенка.</h3>
+</article>
+<article>
+<img class="img-7" src="PR12\Content\Полезная информация\3.jpg">
+<h3 class="text-wrapper-46">Электросамокат. Какой лучше и как выбрать?</h3>
+</article>
+<article>
+<img class="img-8" src="PR12\Content\Полезная информация\4.jpg">
+<h3 class="text-wrapper-47">Как выбрать гироскутер? <br> Советы перед покупкой</h3>
+</article>
+</section>
+<footer class="view-17">
+<p class="text-wrapper-48">В нашем интернет-магазине представлен большой выбор гироскутеров, сигвеев и электросамокатов от известных мировых производителей.<br><br>Все товары, представленные на нашем сайте, отобраны лучшими специалистами в этой области.</p>
+<p class="text-wrapper-49">Copyright © 2020 My-Giro</p>
+<section aria-labelledby="company-title">
+<h2 class="text-wrapper-50" id="company-title">КОМПАНИЯ MY-GIRO</h2>
+<p class="text-wrapper-51"><a href="#about">О нас</a><br><a href="#advantages">Наши преимущества</a><br><a href="#team">Наши консультанты</a></p>
+</section>
+<section aria-labelledby="customers-title">
+<h2 class="text-wrapper-52" id="customers-title">ПОКУПАТЕЛЯМ</h2>
+<p class="text-wrapper-53"><a href="#catalog">Каталог</a><br><a href="#brands">Бренды</a><br><a href="#useful">Полезная информация</a></p>
+</section>
+<section aria-labelledby="help-title">
+<h2 class="text-wrapper-54" id="help-title">ПОМОЩЬ</h2>
+<p class="text-wrapper-55">Как оформить заказ<br>Способы оплаты<br>Обмен и возврат товара</p>
+</section>
+</footer>
+</main>
+</body>
+</html>
